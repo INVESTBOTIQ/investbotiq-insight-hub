@@ -36,7 +36,7 @@ const DashboardSummary: React.FC = () => {
           
           <div className="mt-4 text-sm flex items-center gap-2 text-muted-foreground">
             <Sparkles className="h-4 w-4 text-primary" />
-            <span>Je cashflow groeit door flowluta-activaties volgens jouw Tier Plan.</span>
+            <span>Je cashflow groeit door flowluta activaties volgens jouw Tier Plan.</span>
           </div>
         </CardContent>
       </Card>

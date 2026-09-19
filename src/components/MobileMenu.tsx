@@ -24,7 +24,7 @@ interface MobileMenuProps {
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen, onClose }) => {
-  const { user, userRole } = useAuth();
+  const { user, userRole, signOut } = useAuth();
   const isAdmin = userRole === "admin";
   const location = useLocation();
   const navigate = useNavigate();
@@ -36,13 +36,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen, onClose }) =
 
   const handleLogout = async () => {
     try {
-      const { error } = await supabase.auth.signOut();
-      
-      if (error) {
-        console.error("Error during logout:", error);
-        throw error;
-      }
-      
+      await signOut();
       toast.success("U bent uitgelogd");
       onClose();
       // Navigeren naar homepage na uitloggen

@@ -28,8 +28,11 @@ const MemberReferrals = () => {
     if (ownReferral?.referral_code) {
       const link = `https://investbotiq.nl/?ref=${ownReferral.referral_code}`;
       setReferralLink(link);
+    } else if (user?.id) {
+      const fallbackCode = `INV${user.id.slice(0, 6).toUpperCase()}`;
+      setReferralLink(`https://investbotiq.nl/?ref=${fallbackCode}`);
     }
-  }, [ownReferral]);
+  }, [ownReferral, user]);
 
   const handleCopyLink = () => {
     copyReferralLink(referralLink);

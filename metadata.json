@@ -1,0 +1,8 @@
+{
+  "name": "Invest Bot IQ Insight Hub",
+  "description": "Invest Bot IQ Geautomatiseerd Cashflow Platform",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

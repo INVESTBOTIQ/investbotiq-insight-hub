@@ -70,14 +70,13 @@ const PublicHeader: React.FC = () => {
   );
 
   return (
-    <header className="fixed top-0 left-0 w-full z-40 bg-white shadow">
-      <div className="container flex items-center justify-between h-16 md:h-20 px-2">
+    <header className="sticky top-0 left-0 w-full z-40 backdrop-blur-md bg-white/85 border-b border-slate-200/80 transition-all duration-200 shadow-2xs">
+      <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
         {Logo}
         <div className="flex items-center space-x-4">
-
           <PublicHeaderDesktopMenu handleNav={handleNav} />
-          <button className="md:hidden p-2 rounded-full hover:bg-indigo-50 transition-colors" aria-label={menuOpen ? "Sluit menu" : "Open menu"} onClick={() => setMenuOpen(v => !v)}>
-            {menuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+          <button className="md:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors focus:outline-none" aria-label={menuOpen ? "Sluit menu" : "Open menu"} onClick={() => setMenuOpen(v => !v)}>
+            {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>

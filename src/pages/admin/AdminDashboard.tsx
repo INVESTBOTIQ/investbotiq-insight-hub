@@ -50,20 +50,12 @@ const AdminDashboard = () => {
   ]);
 
   useEffect(() => {
-    const fetchInsights = async () => {
-      try {
-        setInsights({
-          activeMembers: 24,
-          totalCashflow: 18400,
-          activeBelLoans: 17,
-          totalSpirits: 31
-        });
-      } catch (error) {
-        console.error("Error fetching dashboard insights:", error);
-      }
-    };
-
-    fetchInsights();
+    setInsights({
+      activeMembers: 24,
+      totalCashflow: 18400,
+      activeBelLoans: 17,
+      totalSpirits: 31
+    });
   }, []);
 
   const adminMenuItems = [

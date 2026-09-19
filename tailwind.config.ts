@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -103,10 +104,10 @@ export default {
 				'fade-in': 'fade-in 0.3s ease-out'
 			},
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
+				sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
 				playfair: ['Playfair Display', 'serif'], // Modern font voor Home
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [tailwindcssAnimate],
 } satisfies Config;

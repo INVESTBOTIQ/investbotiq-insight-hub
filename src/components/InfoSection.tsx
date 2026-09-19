@@ -1,23 +1,26 @@
-
 import React from "react";
 import WhatIsSection from "./info/WhatIsSection";
 import WhySection from "./info/WhySection";
+import CashflowCalculator from "./info/CashflowCalculator";
 import HowSection from "./info/HowSection";
 import AdvantagesSection from "./info/AdvantagesSection";
 import FAQSection from "./info/FAQSection";
+import FinalCtaSection from "./info/FinalCtaSection";
 
-const InfoSection = React.forwardRef<HTMLDivElement>((props, ref) => (
-  <section
-    ref={ref}
-    id="wat-is-investbotiq"
-    className="mx-auto w-full max-w-3xl rounded-2xl shadow-xl bg-white/95 backdrop-blur-lg px-5 xs:px-7 sm:px-9 md:px-12 py-10 xs:py-12 md:py-16 mt-12 md:mt-20 mb-14 md:mb-24 z-30 relative"
-  >
+type Props = {
+  onOpenDemo?: () => void;
+};
+
+const InfoSection = React.forwardRef<HTMLDivElement, Props>(({ onOpenDemo }, ref) => (
+  <div ref={ref} className="w-full flex flex-col z-20 relative">
     <WhatIsSection />
     <WhySection />
+    <CashflowCalculator />
     <HowSection />
     <AdvantagesSection />
     <FAQSection />
-  </section>
+    <FinalCtaSection onOpenDemo={onOpenDemo} />
+  </div>
 ));
 
 InfoSection.displayName = "InfoSection";

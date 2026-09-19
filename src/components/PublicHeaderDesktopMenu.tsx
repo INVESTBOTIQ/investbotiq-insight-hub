@@ -93,9 +93,9 @@ const PublicHeaderDesktopMenu: React.FC<Props> = ({ handleNav }) => {
       {/* Inloggen knop + Registreren knop */}
       <Link
         to="/auth"
-        className="flex items-center px-4 py-2 rounded-md bg-indigo-500 text-white hover:bg-indigo-600 font-semibold transition-all ml-2"
+        className="flex items-center px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 font-semibold transition-all ml-2 shadow-xs"
       >
-        <LogIn className="mr-2 h-4 w-4" /> Log-in
+        <LogIn className="mr-2 h-4 w-4" /> Inloggen
       </Link>
       <Button
         variant="default"

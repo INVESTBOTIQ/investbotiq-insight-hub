@@ -128,7 +128,7 @@ const PublicHeaderMobileMenu: React.FC<Props> = ({ menuOpen, setMenuOpen, Logo }
                   navigate("/auth");
                 }}
               >
-                <LogIn className="mr-2 h-4 w-4" /> Log-in
+                <LogIn className="mr-2 h-4 w-4" /> Inloggen
               </button>
               <div className="flex-1" />
             </nav>
@@ -137,17 +137,17 @@ const PublicHeaderMobileMenu: React.FC<Props> = ({ menuOpen, setMenuOpen, Logo }
                 <>
                   <Link
                     to="/auth"
-                    className="block w-full py-2 px-3 rounded bg-indigo-500 text-white font-semibold text-center hover:bg-indigo-700 transition"
+                    className="block w-full py-2 px-3 rounded bg-indigo-600 text-white font-semibold text-center hover:bg-indigo-700 transition"
                     onClick={() => setMenuOpen(false)}
                   >
-                    Register
+                    Registreren
                   </Link>
                   <Link
                     to="/auth"
-                    className="block w-full py-2 px-3 rounded bg-gray-100 text-indigo-700 font-semibold text-center hover:bg-indigo-200 transition"
+                    className="block w-full py-2 px-3 rounded bg-slate-100 text-indigo-700 font-semibold text-center hover:bg-indigo-100 transition"
                     onClick={() => setMenuOpen(false)}
                   >
-                    Log-in
+                    Inloggen
                   </Link>
                 </>
               )}

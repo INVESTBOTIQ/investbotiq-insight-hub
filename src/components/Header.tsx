@@ -20,7 +20,7 @@ import BrandLogo from "./BrandLogo";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Header = () => {
-  const { user, userRole } = useAuth();
+  const { user, userRole, signOut } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isMobile = useIsMobile();
   const location = useLocation();
@@ -41,13 +41,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      const { error } = await supabase.auth.signOut();
-      
-      if (error) {
-        console.error("Error during logout:", error);
-        throw error;
-      }
-      
+      await signOut();
       toast.success("U bent uitgelogd");
       // Navigeren naar homepage na uitloggen
       navigate("/", { replace: true });

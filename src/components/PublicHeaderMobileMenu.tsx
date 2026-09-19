@@ -11,17 +11,17 @@ const NAV_ITEMS = [
     desktopOnly: false
   },
   {
-    title: "Alles over Investbot",
+    title: "Alles over Investbotiq",
     submenu: [
       { label: "Wat is het?", to: "/alles-over-investbot/wat-is-het" },
       { label: "Hoe werkt het?", to: "/alles-over-investbot/hoe-werkt-het" },
-      { label: "Missie & Visie", to: "/alles-over-investbot/mission-vision" }
+      { label: "Missie & Visie", to: "/alles-over-investbot/mission-vision" },
+      { label: "FAQ", to: "/faq" }
     ],
     desktopOnly: false
   },
   { title: "Tier Plannen", to: "/tier-plannen", desktopOnly: false },
-  { title: "Veiligheid", to: "/veiligheid", desktopOnly: false },
-  { title: "FAQ", to: "/faq", desktopOnly: false }
+  { title: "Veiligheid", to: "/veiligheid", desktopOnly: false }
 ];
 
 interface Props {
@@ -80,7 +80,7 @@ const PublicHeaderMobileMenu: React.FC<Props> = ({ menuOpen, setMenuOpen, Logo }
                   className="flex items-center w-full justify-between font-semibold py-2.5 px-3 rounded-xl hover:bg-indigo-50 text-slate-800 transition"
                   onClick={() => setSubmenuOpen((o) => !o)}
                 >
-                  <span>Alles over Investbot</span>
+                  <span>Alles over Investbotiq</span>
                   <ChevronDown className={`ml-1 h-5 w-5 transition-transform ${submenuOpen ? 'rotate-180' : ''}`} />
                 </button>
                 <AnimatePresence>

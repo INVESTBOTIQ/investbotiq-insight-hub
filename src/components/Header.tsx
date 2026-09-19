@@ -140,33 +140,46 @@ const Header = () => {
           
           {/* Desktop user menu */}
           {user && (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild className="hidden md:flex">
-                <Button variant="ghost" size="sm" className="rounded-full h-9 w-9 p-0">
-                  <Avatar className="h-9 w-9">
-                    <AvatarFallback className="bg-primary/10 text-primary">
-                      {getUserInitials()}
-                    </AvatarFallback>
-                  </Avatar>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <div className="px-4 py-3 border-b">
-                  <p className="text-sm font-medium capitalize">{userRole}</p>
-                  <p className="text-xs text-muted-foreground truncate">{user.email}</p>
-                </div>
-                <DropdownMenuItem asChild>
-                  <Link to={userRole === 'admin' ? "/admin/profile" : "/member/profile"} className="cursor-pointer">
-                    Mijn profiel
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-red-600">
-                  <LogOut className="mr-2 h-4 w-4" />
-                  <span>Uitloggen</span>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <div className="hidden md:flex items-center gap-2">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="rounded-full h-9 w-9 p-0">
+                    <Avatar className="h-9 w-9">
+                      <AvatarFallback className="bg-primary/10 text-primary font-bold">
+                        {getUserInitials()}
+                      </AvatarFallback>
+                    </Avatar>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <div className="px-4 py-3 border-b">
+                    <p className="text-sm font-medium capitalize">{userRole}</p>
+                    <p className="text-xs text-muted-foreground truncate">{user.email}</p>
+                  </div>
+                  <DropdownMenuItem asChild>
+                    <Link to={userRole === 'admin' ? "/admin/profile" : "/member/profile"} className="cursor-pointer">
+                      Mijn profiel
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-red-600">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Uitloggen</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleLogout}
+                className="flex items-center gap-1.5 text-slate-600 hover:text-red-600 hover:bg-red-50 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition-colors"
+                title="Uitloggen"
+              >
+                <LogOut className="h-3.5 w-3.5 text-red-500" />
+                <span>Uitloggen</span>
+              </Button>
+            </div>
           )}
         </div>
       </div>

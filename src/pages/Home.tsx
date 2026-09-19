@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PublicHeader from "@/components/PublicHeader";
 import HeroSection from "@/components/HeroSection";
 import InfoSection from "@/components/InfoSection";
+import BrandLogo from "@/components/BrandLogo";
 import { Bot, Globe } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -41,30 +42,22 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             
             {/* Logo & Brand */}
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold shadow-md shadow-indigo-600/30">
-                <Bot className="w-5 h-5" />
-              </div>
-              <span className="text-lg font-bold text-white tracking-tight">Investbotiq</span>
-            </div>
+            <BrandLogo variant="dark" to="/" />
 
             {/* Nav links */}
             <div className="flex flex-wrap justify-center gap-6 text-xs font-medium">
-              <a href="#wat-is-investbotiq" className="hover:text-white transition-colors">
-                Wat is Investbotiq
-              </a>
-              <a href="#hoe-het-werkt" className="hover:text-white transition-colors">
-                Hoe werkt het
-              </a>
-              <a href="#calculator" className="hover:text-white transition-colors">
-                Calculator
-              </a>
-              <a href="#voordelen" className="hover:text-white transition-colors">
-                Voordelen
-              </a>
-              <a href="#faq" className="hover:text-white transition-colors">
+              <Link to="/tier-plannen" className="hover:text-white transition-colors">
+                Tier Plannen
+              </Link>
+              <Link to="/veiligheid" className="hover:text-white transition-colors">
+                Veiligheid
+              </Link>
+              <Link to="/alles-over-investbot/wat-is-het" className="hover:text-white transition-colors">
+                Alles over Investbot
+              </Link>
+              <Link to="/faq" className="hover:text-white transition-colors">
                 FAQ
-              </a>
+              </Link>
               <Link to="/auth" className="hover:text-white transition-colors">
                 Inloggen
               </Link>
@@ -92,18 +85,8 @@ export default function Home() {
       <Dialog open={showDemoModal} onOpenChange={setShowDemoModal}>
         <DialogContent className="max-w-4xl w-[92vw] bg-slate-900 text-white border border-slate-800 p-6 sm:p-8 rounded-3xl shadow-2xl">
           <DialogHeader className="pb-4 border-b border-slate-800">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white">
-                <Bot className="w-5 h-5" />
-              </div>
-              <div>
-                <DialogTitle className="text-xl font-extrabold text-white">
-                  IQ Bot Member Dashboard (Demo)
-                </DialogTitle>
-                <p className="text-xs text-slate-400">
-                  Live gesimuleerde weergave van jouw account
-                </p>
-              </div>
+            <div className="flex items-center justify-between">
+              <BrandLogo variant="dark" subtitle="Live Account Simulatie" />
             </div>
           </DialogHeader>
 

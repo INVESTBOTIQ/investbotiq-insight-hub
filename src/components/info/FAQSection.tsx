@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Search, HelpCircle } from "lucide-react";
+import { ChevronDown, Search, HelpCircle, ArrowRight } from "lucide-react";
 
 function FadeIn({
   children,
@@ -134,6 +135,17 @@ export default function FAQSection() {
             })
           )}
         </div>
+
+        {/* Link to full dedicated FAQ page */}
+        <FadeIn delay={0.45} className="mt-8 text-center">
+          <Link
+            to="/faq"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-semibold text-sm transition-all shadow-2xs hover:shadow-sm"
+          >
+            <span>Bekijk alle veelgestelde vragen op de FAQ pagina</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </FadeIn>
 
       </div>
     </section>

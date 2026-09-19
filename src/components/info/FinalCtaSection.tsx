@@ -26,7 +26,7 @@ export default function FinalCtaSection({ onOpenDemo }: Props) {
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
             <Button
               asChild
-              className="w-full sm:w-auto px-8 py-6 bg-white text-indigo-700 font-bold rounded-2xl hover:bg-indigo-50 shadow-lg transition-all text-base"
+              className="w-full sm:w-auto px-8 py-6 bg-white text-purple-700 font-bold rounded-2xl hover:bg-purple-50 hover:text-purple-800 active:bg-purple-100 active:text-purple-900 active:scale-95 shadow-lg transition-all text-base"
             >
               <Link to="/auth" className="flex items-center gap-2">
                 <span>Aanmelden en Starten</span>
@@ -39,7 +39,7 @@ export default function FinalCtaSection({ onOpenDemo }: Props) {
                 type="button"
                 variant="outline"
                 onClick={onOpenDemo}
-                className="w-full sm:w-auto px-8 py-6 bg-indigo-700/50 hover:bg-indigo-700 text-white font-bold rounded-2xl border border-white/20 transition-all text-base flex items-center gap-2"
+                className="w-full sm:w-auto px-8 py-6 bg-purple-900/40 hover:bg-purple-800/60 active:bg-purple-800 active:scale-95 text-white font-bold rounded-2xl border border-white/20 transition-all text-base flex items-center gap-2"
               >
                 <Play className="w-4 h-4 fill-white" />
                 <span>Bekijk Demo Dashboard</span>

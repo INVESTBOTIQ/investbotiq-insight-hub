@@ -6,6 +6,7 @@ import { ArrowLeft, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import BrandLogo from "@/components/BrandLogo";
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -25,6 +26,9 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background p-4">
+      <div className="mb-6">
+        <BrandLogo to="/" />
+      </div>
       <Card className="max-w-md w-full">
         <CardContent className="pt-6 pb-0 text-center">
           <motion.div 

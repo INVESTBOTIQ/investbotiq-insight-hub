@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthProvider';
 import {
   BarChart4,
@@ -12,13 +12,27 @@ import {
   Sparkles,
   Bell,
   CircleDollarSign,
-  Share2
+  Share2,
+  LogOut
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { toast } from 'sonner';
 
 const Sidebar = () => {
   const [expanded, setExpanded] = React.useState(true);
-  const { userRole } = useAuth();
+  const { userRole, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      toast.success("U bent succesvol uitgelogd");
+      navigate("/");
+    } catch (err) {
+      console.error("Logout error:", err);
+      toast.error("Er is een fout opgetreden bij het uitloggen");
+    }
+  };
   
   const memberLinks = [
     { to: '/member/dashboard', icon: <Home className="h-4 w-4" />, label: 'Dashboard' },
@@ -72,7 +86,7 @@ const Sidebar = () => {
             ))}
           </nav>
 
-          <div className="mt-auto px-2 py-4">
+          <div className="mt-auto px-2 py-4 space-y-1 border-t">
             <NavLink
               to={profileLink}
               className={({ isActive }) =>
@@ -89,6 +103,17 @@ const Sidebar = () => {
                 Profiel
               </span>
             </NavLink>
+
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="w-full flex items-center gap-3 rounded-md px-3 py-2 text-sm text-red-600 hover:bg-red-50 active:bg-red-100 transition-colors font-medium"
+            >
+              <LogOut className="h-4 w-4" />
+              <span className={cn('truncate', !expanded && 'lg:hidden')}>
+                Uitloggen
+              </span>
+            </button>
           </div>
         </div>
       </aside>

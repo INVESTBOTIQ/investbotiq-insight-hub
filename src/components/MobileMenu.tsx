@@ -11,6 +11,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import BrandLogo from "@/components/BrandLogo";
 import {
   Sheet,
   SheetContent,
@@ -72,7 +73,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen, onClose }) =
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen} modal={false}>
-      <SheetContent side="left" className="w-[80%] max-w-xs p-0 shadow-xl">
+      <SheetContent side="left" className="w-[80%] max-w-xs p-0 shadow-xl flex flex-col">
+        <div className="p-4 border-b">
+          <BrandLogo size="sm" />
+        </div>
         {user && (
           <div className="flex items-center gap-3 p-4 border-b bg-primary/5">
             <Avatar className="h-10 w-10">

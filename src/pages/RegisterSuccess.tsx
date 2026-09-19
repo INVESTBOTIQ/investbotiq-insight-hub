@@ -3,10 +3,15 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import BrandLogo from "@/components/BrandLogo";
 
 const RegisterSuccess = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-[#eef2ff] to-indigo-100 p-4 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white via-[#eef2ff] to-indigo-100 p-4 relative overflow-hidden">
+      {/* Brand logo top */}
+      <div className="mb-6 relative z-10">
+        <BrandLogo to="/" />
+      </div>
       {/* Grote orb rechtsboven */}
       <motion.div 
         className="absolute -top-24 -right-24 w-[30rem] h-[30rem] bg-indigo-200 rounded-full opacity-20 blur-3xl"

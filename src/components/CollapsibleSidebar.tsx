@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthProvider";
 import {
   Home,
@@ -12,19 +12,33 @@ import {
   Share2,
   UserCircle,
   ChevronLeft,
+  LogOut,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { toast } from "sonner";
 
 const CollapsibleSidebar = () => {
   const [expanded, setExpanded] = useState(() => {
     const storedState = localStorage.getItem("sidebar-expanded");
     return storedState === null ? true : storedState === "true";
   });
-  const { userRole } = useAuth();
+  const { userRole, signOut } = useAuth();
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      toast.success("U bent succesvol uitgelogd");
+      navigate("/");
+    } catch (err) {
+      console.error("Logout error:", err);
+      toast.error("Er is een fout opgetreden bij het uitloggen");
+    }
+  };
 
   useEffect(() => {
     localStorage.setItem("sidebar-expanded", String(expanded));
@@ -97,14 +111,14 @@ const CollapsibleSidebar = () => {
             </ul>
           </nav>
 
-          <div className="border-t pt-4 px-2 pb-4">
+          <div className="border-t pt-3 px-2 pb-4 space-y-1">
             <Tooltip delayDuration={300}>
               <TooltipTrigger asChild>
                 <NavLink
                   to={profileLink}
                   className={({ isActive }) =>
                     cn(
-                      "flex items-center gap-3 px-3 py-2 mb-3 rounded-md text-sm transition-colors",
+                      "flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors",
                       !expanded && "justify-center px-2",
                       isActive
                         ? "bg-accent text-primary font-medium"
@@ -123,12 +137,33 @@ const CollapsibleSidebar = () => {
               )}
             </Tooltip>
 
+            <Tooltip delayDuration={300}>
+              <TooltipTrigger asChild>
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  className={cn(
+                    "w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm text-red-600 hover:bg-red-50 active:bg-red-100 transition-colors",
+                    !expanded && "justify-center px-2"
+                  )}
+                >
+                  <LogOut className="h-4 w-4" />
+                  {expanded && <span className="truncate font-medium">Uitloggen</span>}
+                </button>
+              </TooltipTrigger>
+              {!expanded && (
+                <TooltipContent side="right" className="bg-background border text-red-600">
+                  Uitloggen
+                </TooltipContent>
+              )}
+            </Tooltip>
+
             <Button
               variant="outline"
               size="sm"
               onClick={() => setExpanded(prev => !prev)}
               className={cn(
-                "w-full flex items-center justify-center transition-transform",
+                "w-full flex items-center justify-center transition-transform mt-2",
                 !expanded && "rotate-180"
               )}
             >

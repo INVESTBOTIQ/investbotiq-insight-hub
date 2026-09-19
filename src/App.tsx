@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "@/components/AuthProvider";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 import Home from "@/pages/Home";
 import Auth from "@/pages/Auth";
 import Register from "@/pages/Register";
@@ -44,57 +45,59 @@ const queryClient = new QueryClient({
 });
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <BrowserRouter>
-        <AuthProvider>
-          <Toaster />
-          <Sonner />
-          <Routes>
-            {/* Public routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/register/success" element={<RegisterSuccess />} />
-            <Route path="/faq" element={<FAQ />} />
+  <ErrorBoundary>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <BrowserRouter>
+          <AuthProvider>
+            <Toaster />
+            <Sonner />
+            <Routes>
+              {/* Public routes */}
+              <Route path="/" element={<Home />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/register/success" element={<RegisterSuccess />} />
+              <Route path="/faq" element={<FAQ />} />
 
-            {/* Info pages */}
-            <Route path="/alles-over-investbot/wat-is-het" element={<WatIsInvestBotIQ />} />
-            <Route path="/alles-over-investbot/hoe-werkt-het" element={<HoeWerktHet />} />
-            <Route path="/alles-over-investbot/mission-vision" element={<MissieVisie />} />
-            <Route path="/tier-plannen" element={<TierPlannen />} />
-            <Route path="/veiligheid" element={<Veiligheid />} />
+              {/* Info pages */}
+              <Route path="/alles-over-investbot/wat-is-het" element={<WatIsInvestBotIQ />} />
+              <Route path="/alles-over-investbot/hoe-werkt-het" element={<HoeWerktHet />} />
+              <Route path="/alles-over-investbot/mission-vision" element={<MissieVisie />} />
+              <Route path="/tier-plannen" element={<TierPlannen />} />
+              <Route path="/veiligheid" element={<Veiligheid />} />
 
-            {/* Member routes */}
-            <Route path="/member/dashboard" element={<MemberDashboard />} />
-            <Route path="/member/progress" element={<MemberProgress />} />
-            <Route path="/member/tasks" element={<MemberTasks />} />
-            <Route path="/member/profile" element={<MemberProfile />} />
-            <Route path="/member/ai-running" element={<MemberAIRunning />} />
-            <Route path="/member/referrals" element={<MemberReferrals />} />
+              {/* Member routes */}
+              <Route path="/member/dashboard" element={<MemberDashboard />} />
+              <Route path="/member/progress" element={<MemberProgress />} />
+              <Route path="/member/tasks" element={<MemberTasks />} />
+              <Route path="/member/profile" element={<MemberProfile />} />
+              <Route path="/member/ai-running" element={<MemberAIRunning />} />
+              <Route path="/member/referrals" element={<MemberReferrals />} />
 
-            <Route path="/member" element={<Navigate to="/member/dashboard" replace />} />
+              <Route path="/member" element={<Navigate to="/member/dashboard" replace />} />
 
-            {/* Admin routes */}
-            <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/admin/leads" element={<AdminLeads />} />
-            <Route path="/admin/users" element={<AdminUsers />} />
-            <Route path="/admin/tasks" element={<AdminTasks />} /> 
-            <Route path="/admin/cashflows" element={<AdminCashflows />} />
-            <Route path="/admin/flowlutas" element={<AdminFlowlutas />} />
-            <Route path="/admin/notifications" element={<AdminNotifications />} />
-            <Route path="/admin/referrals" element={<AdminReferrals />} />
-            <Route path="/admin/settings" element={<AdminSettings />} />
-            <Route path="/admin/profile" element={<AdminProfile />} />
-            <Route path="/admin/index" element={<Navigate to="/admin" replace />} />
+              {/* Admin routes */}
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/leads" element={<AdminLeads />} />
+              <Route path="/admin/users" element={<AdminUsers />} />
+              <Route path="/admin/tasks" element={<AdminTasks />} /> 
+              <Route path="/admin/cashflows" element={<AdminCashflows />} />
+              <Route path="/admin/flowlutas" element={<AdminFlowlutas />} />
+              <Route path="/admin/notifications" element={<AdminNotifications />} />
+              <Route path="/admin/referrals" element={<AdminReferrals />} />
+              <Route path="/admin/settings" element={<AdminSettings />} />
+              <Route path="/admin/profile" element={<AdminProfile />} />
+              <Route path="/admin/index" element={<Navigate to="/admin" replace />} />
 
-            {/* Catch-all route */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </AuthProvider>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+              {/* Catch-all route */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </AuthProvider>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </ErrorBoundary>
 );
 
 export default App;

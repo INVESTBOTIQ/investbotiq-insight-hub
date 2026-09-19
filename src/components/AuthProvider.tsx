@@ -112,7 +112,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const fetchUserRole = async (userId: string) => {
     try {
       const isConfigured = Boolean(
-        import.meta.env.VITE_SUPABASE_URL &&
+        import.meta.env?.VITE_SUPABASE_URL &&
         !import.meta.env.VITE_SUPABASE_URL.includes("placeholder")
       );
       if (!isConfigured) {
@@ -205,7 +205,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 };

@@ -1,18 +1,21 @@
-import React, { useState, useId } from "react";
+import React, { useState } from "react";
 import { Sparkles, TrendingUp, Calendar, Coins } from "lucide-react";
 
 export default function CashflowCalculator() {
-  const [initialAmount, setInitialAmount] = useState(2500);
-  const [monthlyAmount, setMonthlyAmount] = useState(250);
-  const [years, setYears] = useState(3);
-  const chartGradientId = useId();
+  const [initialAmount, setInitialAmount] = useState<number>(2500);
+  const [monthlyAmount, setMonthlyAmount] = useState<number>(250);
+  const [years, setYears] = useState<number>(3);
+  const chartGradientId = "cashflowChartGradient";
 
-  const months = years * 12;
+  const safeYears = Math.max(1, Number(years) || 1);
+  const safeInitial = Math.max(0, Number(initialAmount) || 0);
+  const safeMonthly = Math.max(0, Number(monthlyAmount) || 0);
+  const months = safeYears * 12;
   const annualBotReturn = 0.14; // 14% geschat per jaar
 
   // Berekening
-  let currentBot = initialAmount;
-  let currentSavings = initialAmount;
+  let currentBot = safeInitial;
+  let currentSavings = safeInitial;
   const curvePoints: { x: number; bot: number; savings: number }[] = [];
 
   for (let i = 0; i <= months; i++) {
@@ -21,8 +24,8 @@ export default function CashflowCalculator() {
       bot: Math.round(currentBot),
       savings: Math.round(currentSavings)
     });
-    currentBot = (currentBot + monthlyAmount) * (1 + annualBotReturn / 12);
-    currentSavings = currentSavings + monthlyAmount;
+    currentBot = (currentBot + safeMonthly) * (1 + annualBotReturn / 12);
+    currentSavings = currentSavings + safeMonthly;
   }
 
   const calculatedTotal = Math.round(currentBot);
@@ -33,23 +36,22 @@ export default function CashflowCalculator() {
   const chartWidth = 500;
   const chartHeight = 180;
 
-  const pointsString = curvePoints
-    .map((p, idx) => {
-      const x = (idx / months) * chartWidth;
-      const y = chartHeight - (p.bot / maxVal) * (chartHeight - 20) - 10;
-      return `${x},${y}`;
-    })
-    .join(" ");
+  const pointsList = curvePoints.map((p, idx) => {
+    const x = ((idx / months) * chartWidth).toFixed(1);
+    const y = Math.max(10, Math.min(chartHeight - 10, chartHeight - (p.bot / maxVal) * (chartHeight - 30) - 15)).toFixed(1);
+    return `${x},${y}`;
+  });
 
-  const savingsPointsString = curvePoints
-    .map((p, idx) => {
-      const x = (idx / months) * chartWidth;
-      const y = chartHeight - (p.savings / maxVal) * (chartHeight - 20) - 10;
-      return `${x},${y}`;
-    })
-    .join(" ");
+  const savingsPointsList = curvePoints.map((p, idx) => {
+    const x = ((idx / months) * chartWidth).toFixed(1);
+    const y = Math.max(10, Math.min(chartHeight - 10, chartHeight - (p.savings / maxVal) * (chartHeight - 30) - 15)).toFixed(1);
+    return `${x},${y}`;
+  });
 
-  const areaPath = `M 0,${chartHeight} L ${pointsString} L ${chartWidth},${chartHeight} Z`;
+  const pointsString = pointsList.join(" ");
+  const savingsPointsString = savingsPointsList.join(" ");
+
+  const areaPath = `M 0,${chartHeight} L ${pointsList.join(" L ")} L ${chartWidth},${chartHeight} Z`;
 
   return (
     <section id="calculator" className="py-20 bg-slate-900 text-white relative overflow-hidden">

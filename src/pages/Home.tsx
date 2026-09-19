@@ -28,10 +28,10 @@ export default function Home() {
         />
       </div>
 
-      <PublicHeader />
+      <PublicHeader onOpenDemo={() => setShowDemoModal(true)} />
       
       <main className="flex flex-col w-full relative z-10">
-        <HeroSection onScrollToInfo={handleScroll} />
+        <HeroSection onScrollToInfo={handleScroll} onOpenDemo={() => setShowDemoModal(true)} />
         <InfoSection ref={infoRef} onOpenDemo={() => setShowDemoModal(true)} />
       </main>
 

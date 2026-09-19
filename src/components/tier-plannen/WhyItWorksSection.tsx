@@ -49,7 +49,7 @@ De groei is voorspelbaar, meetbaar, zichtbaar en controleerbaar.</p>
               Kaspositie, Cashflow, Flowlutas en TimeGap-leningen per maand (TIER 2-6)
             </h3>
             <div className="h-[600px] w-full">
-              <img src="/lovable-uploads/315e9350-1215-4c77-af5e-ff7f4e676b66.png" alt="Grafiek van Kaspositie, Cashflow, Flowlutas en TimeGap-leningen" className="w-full h-full object-contain" />
+              <img src="/assets/315e9350-1215-4c77-af5e-ff7f4e676b66.png" alt="Grafiek van Kaspositie, Cashflow, Flowlutas en TimeGap-leningen" className="w-full h-full object-contain" />
             </div>
           </div>
         </FadeIn>

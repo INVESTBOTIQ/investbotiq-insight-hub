@@ -1,9 +1,9 @@
-
+import React from "react";
 import { withRoleGuard } from "@/utils/withRoleGuard";
-import { TasksPage } from "@/components/tasks/TasksPage";
+import MemberPortal from "@/components/member/MemberPortal";
 
 const MemberTasks = () => {
-  return <TasksPage />;
+  return <MemberPortal initialTab="takenlijst" />;
 };
 
 export default withRoleGuard(MemberTasks, ["member"]);

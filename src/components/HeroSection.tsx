@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { 
   ArrowRight, 
   Compass, 
@@ -18,35 +17,33 @@ import {
 
 type Props = {
   onScrollToInfo: () => void;
+  onOpenDemo?: () => void;
 };
 
-const HeroSection: React.FC<Props> = ({ onScrollToInfo }) => {
-  const [showDemoModal, setShowDemoModal] = useState(false);
-
-  function FadeIn({
-    children,
-    delay = 0,
-    className = ""
-  }: {
-    children: React.ReactNode;
-    delay?: number;
-    className?: string;
-  }) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, y: 32 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.7, delay }}
-        className={className}
-      >
-        {children}
-      </motion.div>
-    );
-  }
-
+function FadeIn({
+  children,
+  delay = 0,
+  className = ""
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
   return (
-    <section className="relative z-10 w-full pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+const HeroSection: React.FC<Props> = ({ onScrollToInfo, onOpenDemo }) => {
+  return (
+    <section className="relative z-10 w-full pt-20 pb-20 md:pt-28 md:pb-32 overflow-hidden bg-grid-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
@@ -67,7 +64,7 @@ const HeroSection: React.FC<Props> = ({ onScrollToInfo }) => {
             <FadeIn delay={0.12}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] text-balance">
                 Laat de{" "}
-                <span className="bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent">
+                <span className="gradient-text">
                   IQ Bot
                 </span>{" "}
                 automatisch jouw{" "}
@@ -80,7 +77,7 @@ const HeroSection: React.FC<Props> = ({ onScrollToInfo }) => {
             {/* Hero Subtitle */}
             <FadeIn delay={0.18}>
               <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                Geen kennis vereist, geen zorgen. Gewoon laten groeien.
+                Geen technische kennis vereist. Geen dagelijkse zorgen. Sluit je aan en laat jouw kapitaal gestructureerd en passief groeien.
               </p>
             </FadeIn>
 
@@ -93,7 +90,7 @@ const HeroSection: React.FC<Props> = ({ onScrollToInfo }) => {
                   className="w-full sm:w-auto px-8 py-6 rounded-2xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 text-white font-bold text-base shadow-xl shadow-indigo-500/25 hover:shadow-2xl hover:shadow-indigo-500/40 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-3 group"
                 >
                   <Link to="/auth">
-                    <span>Inloggen</span>
+                    <span>Start Direct</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
@@ -109,14 +106,16 @@ const HeroSection: React.FC<Props> = ({ onScrollToInfo }) => {
                 </Button>
 
                 {/* Demo Button */}
-                <Button
-                  variant="outline"
-                  onClick={() => setShowDemoModal(true)}
-                  className="w-full sm:w-auto px-6 py-6 rounded-2xl bg-indigo-50/80 border border-indigo-100 text-indigo-700 font-semibold text-base hover:bg-indigo-100/80 transition-all text-center flex items-center justify-center gap-2"
-                >
-                  <Play className="w-4 h-4 text-indigo-600 fill-indigo-600" />
-                  <span>Bekijk demo</span>
-                </Button>
+                {onOpenDemo && (
+                  <Button
+                    variant="outline"
+                    onClick={onOpenDemo}
+                    className="w-full sm:w-auto px-6 py-6 rounded-2xl bg-indigo-50/80 border border-indigo-100 text-indigo-700 font-semibold text-base hover:bg-indigo-100/80 transition-all text-center flex items-center justify-center gap-2"
+                  >
+                    <Play className="w-4 h-4 text-indigo-600 fill-indigo-600" />
+                    <span>Bekijk demo</span>
+                  </Button>
+                )}
               </div>
             </FadeIn>
 
@@ -230,12 +229,15 @@ const HeroSection: React.FC<Props> = ({ onScrollToInfo }) => {
                 {/* Card Footer CTA */}
                 <div className="mt-5 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
                   <span className="text-slate-400">Geen handmatige actie vereist</span>
-                  <button
-                    onClick={() => setShowDemoModal(true)}
-                    className="text-indigo-400 font-semibold hover:text-indigo-300 flex items-center gap-1 transition-colors"
-                  >
-                    Open Dashboard Demo <ChevronRight className="w-3 h-3" />
-                  </button>
+                  {onOpenDemo && (
+                    <button
+                      type="button"
+                      onClick={onOpenDemo}
+                      className="text-indigo-400 font-semibold hover:text-indigo-300 flex items-center gap-1 transition-colors"
+                    >
+                      Open Dashboard Demo <ChevronRight className="w-3 h-3" />
+                    </button>
+                  )}
                 </div>
               </div>
             </FadeIn>
@@ -243,87 +245,6 @@ const HeroSection: React.FC<Props> = ({ onScrollToInfo }) => {
 
         </div>
       </div>
-
-      {/* Interactive Demo Dashboard Modal */}
-      <Dialog open={showDemoModal} onOpenChange={setShowDemoModal}>
-        <DialogContent className="max-w-4xl w-[92vw] bg-slate-900 text-white border border-slate-800 p-6 sm:p-8 rounded-3xl shadow-2xl">
-          <DialogHeader className="pb-4 border-b border-slate-800">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white">
-                <Bot className="w-5 h-5" />
-              </div>
-              <div>
-                <DialogTitle className="text-xl font-extrabold text-white">
-                  IQ Bot Member Dashboard (Demo)
-                </DialogTitle>
-                <p className="text-xs text-slate-400">
-                  Live gesimuleerde weergave van jouw account
-                </p>
-              </div>
-            </div>
-          </DialogHeader>
-
-          <div className="grid sm:grid-cols-3 gap-4 my-6">
-            <div className="bg-slate-800/60 p-4 rounded-2xl border border-slate-700/60">
-              <p className="text-xs text-slate-400 font-medium">Totaal Saldo</p>
-              <p className="text-2xl font-bold text-white mt-1">€ 12.450,00</p>
-              <span className="text-xs text-emerald-400 font-semibold">+8,4% deze maand</span>
-            </div>
-            <div className="bg-slate-800/60 p-4 rounded-2xl border border-slate-700/60">
-              <p className="text-xs text-slate-400 font-medium">Automatische Uitkering</p>
-              <p className="text-2xl font-bold text-emerald-400 mt-1">€ 310,00 per maand</p>
-              <span className="text-xs text-slate-400">Volgende uitbetaling: 1e v/d maand</span>
-            </div>
-            <div className="bg-slate-800/60 p-4 rounded-2xl border border-slate-700/60">
-              <p className="text-xs text-slate-400 font-medium">Bot Status</p>
-              <div className="flex items-center gap-2 mt-2">
-                <span className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-sm font-bold text-slate-200">IQ Bot Actief (v2.4)</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-slate-800/40 p-5 rounded-2xl border border-slate-800 mb-6">
-            <div className="flex justify-between items-center mb-4">
-              <h4 className="text-sm font-bold text-slate-200">Maandelijkse Cashflow Opbouw</h4>
-              <span className="text-xs px-2.5 py-1 rounded-lg bg-indigo-500/20 text-indigo-300 font-mono">
-                Live Simulatie
-              </span>
-            </div>
-            <div className="h-32 flex items-end justify-between gap-2 pt-4">
-              {[210, 245, 260, 280, 295, 310, 325, 330, 340].map((val, idx) => {
-                const heightPercent = Math.round((val / 360) * 100);
-                const months = ["Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep"];
-                return (
-                  <div key={idx} className="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
-                    <span className="text-[10px] text-indigo-300 font-mono hidden sm:inline">€{val}</span>
-                    <div
-                      style={{ height: `${heightPercent}%` }}
-                      className="w-full max-w-[28px] bg-gradient-to-t from-indigo-600 to-indigo-400 rounded-t-md transition-all hover:brightness-125"
-                    />
-                    <span className="text-[10px] text-slate-400">{months[idx]}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-slate-800/80 p-4 rounded-2xl border border-slate-700/80">
-            <div className="text-xs text-slate-300 flex items-center gap-2">
-              <Lock className="w-4 h-4 text-indigo-400 shrink-0" />
-              <span>Dit is een demonstratie omgeving met gesimuleerde data.</span>
-            </div>
-            <Button
-              asChild
-              className="w-full sm:w-auto px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs rounded-xl shadow-md transition-all"
-            >
-              <Link to="/auth" onClick={() => setShowDemoModal(false)}>
-                Start Echte Account
-              </Link>
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };

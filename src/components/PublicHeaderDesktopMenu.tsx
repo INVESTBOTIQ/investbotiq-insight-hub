@@ -1,119 +1,117 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ChevronDown, LogIn } from "lucide-react";
+import { ChevronDown, Play } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/components/AuthProvider";
-import { Button } from "@/components/ui/button";
-
-const NAV_ITEMS = [
-  {
-    title: "Home",
-    to: "/",
-    desktopOnly: false
-  },
-  {
-    title: "Alles over Investbot",
-    submenu: [
-      { label: "Wat is het?", to: "/alles-over-investbot/wat-is-het" },
-      { label: "Hoe werkt het?", to: "/alles-over-investbot/hoe-werkt-het" },
-      { label: "Missie & Visie", to: "/alles-over-investbot/mission-vision" }
-    ],
-    desktopOnly: false
-  },
-  { title: "Tier Plannen", to: "/tier-plannen", desktopOnly: false },
-  { title: "Veiligheid", to: "/veiligheid", desktopOnly: false },
-  { title: "FAQ", to: "/faq", desktopOnly: false }
-];
 
 interface Props {
   handleNav: (to: string) => void;
+  onOpenDemo?: () => void;
 }
 
-const PublicHeaderDesktopMenu: React.FC<Props> = ({ handleNav }) => {
+const PublicHeaderDesktopMenu: React.FC<Props> = ({ handleNav, onOpenDemo }) => {
   const { user, userRole } = useAuth();
   const isMember = !!user && userRole === "member";
-  const [desktopSubmenuOpen, setDesktopSubmenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
   return (
-    <nav className="hidden md:flex items-center gap-2 lg:gap-3 xl:gap-6 relative">
-      <Link to="/" className="px-3 py-2 rounded-md font-semibold hover:bg-indigo-50 transition-colors">
-        Home
-      </Link>
-      {/* Alles over Investbot (Dropdown) */}
-      <div
-        className="relative group"
-        onMouseEnter={() => setDesktopSubmenuOpen(true)}
-        onMouseLeave={() => setDesktopSubmenuOpen(false)}
+    <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-slate-700">
+      <a href="#wat-is-investbotiq" className="hover:text-indigo-600 transition-colors">
+        Wat is Investbotiq
+      </a>
+      
+      <a href="#hoe-het-werkt" className="hover:text-indigo-600 transition-colors">
+        Hoe werkt het
+      </a>
+      
+      <a href="#calculator" className="hover:text-indigo-600 transition-colors">
+        Cashflow Calculator
+      </a>
+      
+      <a href="#voordelen" className="hover:text-indigo-600 transition-colors">
+        Voordelen
+      </a>
+      
+      <a href="#faq" className="hover:text-indigo-600 transition-colors">
+        FAQ
+      </a>
+
+      {/* Extra Paginas Dropdown met dekkend witte achtergrond */}
+      <div 
+        className="relative"
+        onMouseEnter={() => setDropdownOpen(true)}
+        onMouseLeave={() => setDropdownOpen(false)}
       >
-        <button
-          className="flex items-center px-3 py-2 rounded-md hover:bg-indigo-50 font-semibold transition-colors"
-          tabIndex={0}
-          onClick={() => setDesktopSubmenuOpen((v) => !v)}
+        <button 
+          onClick={() => setDropdownOpen(v => !v)}
+          className="flex items-center gap-1 text-slate-700 hover:text-indigo-600 transition-colors font-semibold"
         >
-          Alles over Investbot
-          <ChevronDown
-            className={`ml-1 h-4 w-4 transition-transform ${
-              desktopSubmenuOpen ? "rotate-180" : ""
-            }`}
-          />
+          <span>Meer</span>
+          <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
         </button>
+
         <AnimatePresence>
-        {desktopSubmenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 12 }}
-            transition={{ duration: 0.24 }}
-            className="absolute left-0 top-full min-w-[220px] rounded-md shadow-lg bg-white border z-[100] animate-fade-in"
-          >
-            {NAV_ITEMS[1].submenu?.map((item) => (
-              <button
-                key={item.label}
-                className="w-full text-left px-4 py-2 hover:bg-indigo-50 transition-colors"
-                onClick={() => handleNav(item.to)}
+          {dropdownOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 8 }}
+              transition={{ duration: 0.15 }}
+              className="absolute left-0 top-full mt-2 w-48 rounded-2xl shadow-2xl bg-white border border-slate-200 p-2 z-50 text-xs"
+            >
+              <Link 
+                to="/tier-plannen" 
+                className="block px-3 py-2 rounded-xl text-slate-800 hover:bg-indigo-50 hover:text-indigo-600 font-medium transition-colors"
               >
-                {item.label}
-              </button>
-            ))}
-          </motion.div>
-        )}
+                Tier Plannen
+              </Link>
+              <Link 
+                to="/veiligheid" 
+                className="block px-3 py-2 rounded-xl text-slate-800 hover:bg-indigo-50 hover:text-indigo-600 font-medium transition-colors"
+              >
+                Veiligheid
+              </Link>
+              <Link 
+                to="/alles-over-investbot/wat-is-het" 
+                className="block px-3 py-2 rounded-xl text-slate-800 hover:bg-indigo-50 hover:text-indigo-600 font-medium transition-colors"
+              >
+                Alles over Investbot
+              </Link>
+            </motion.div>
+          )}
         </AnimatePresence>
       </div>
-      {/* Single nav items */}
-      {NAV_ITEMS.slice(2).map((item) => (
-        <button
-          key={item.title}
-          className="px-3 py-2 rounded-md hover:bg-indigo-50 font-semibold transition-colors"
-          onClick={() => handleNav(item.to!)}
-        >
-          {item.title}
-        </button>
-      ))}
-      {/* Inloggen knop + Registreren knop */}
-      <Link
-        to="/auth"
-        className="flex items-center px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 font-semibold transition-all ml-2 shadow-xs"
-      >
-        <LogIn className="mr-2 h-4 w-4" /> Inloggen
-      </Link>
-      <Button
-        variant="default"
-        onClick={() => navigate("/register")}
-        className="transition-all hover:bg-indigo-600 hover:scale-105 ml-2"
-      >
-        Registreren
-      </Button>
-      {/* Register / Member */}
 
-      {isMember && (
+      {/* Actions Buttons */}
+      <div className="flex items-center gap-3 ml-2">
+        {onOpenDemo && (
+          <button 
+            type="button"
+            onClick={onOpenDemo} 
+            className="px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-800 bg-slate-100 hover:bg-slate-200 transition-all flex items-center gap-2"
+          >
+            <Play className="w-3.5 h-3.5 text-indigo-600 fill-indigo-600" />
+            <span>Bekijk Demo</span>
+          </button>
+        )}
+
         <Link
-          to="/member/dashboard"
-          className="px-5 py-2 rounded-md bg-blue-100 text-blue-700 hover:bg-blue-200 font-semibold transition-all ml-2"
+          to="/auth"
+          className="px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 shadow-md shadow-indigo-500/20 hover:shadow-lg transition-all transform active:scale-95 text-center"
         >
-          Member Dashboard
+          Inloggen
         </Link>
-      )}
+
+        {isMember && (
+          <Link
+            to="/member/dashboard"
+            className="px-4 py-2.5 rounded-xl text-sm font-semibold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 transition-all"
+          >
+            Dashboard
+          </Link>
+        )}
+      </div>
     </nav>
   );
 };

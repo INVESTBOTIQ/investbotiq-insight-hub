@@ -1,64 +1,79 @@
 import React from "react";
 import InfoPageLayout from "@/components/layouts/InfoPageLayout";
-import SecurityHero from "@/components/veiligheid/SecurityHero";
 import SecurityFeatures from "@/components/veiligheid/SecurityFeatures";
 import NoExternalAccess from "@/components/veiligheid/NoExternalAccess";
 import SecurityTimeline from "@/components/veiligheid/SecurityTimeline";
 import FutureUpdates from "@/components/veiligheid/FutureUpdates";
 import SecurityCTA from "@/components/veiligheid/SecurityCTA";
+
 export default function Veiligheid() {
-  return <InfoPageLayout title="" showGradientBackground>
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 px-4 overflow-hidden">
-        <div className="container mx-auto max-w-6xl relative z-10">
-          <SecurityHero />
-        </div>
-        
-        {/* Background Element */}
-        <div className="absolute -top-10 right-0 w-72 h-72 bg-indigo-200 rounded-full filter blur-3xl opacity-30 z-0"></div>
-        <div className="absolute top-40 -left-20 w-80 h-80 bg-blue-200 rounded-full filter blur-3xl opacity-20 z-0"></div>
-      </section>
-      
+  return (
+    <InfoPageLayout 
+      title="Veiligheid & Bescherming"
+      subtitle="Wij beschermen uw cashflow, data en entiteiten met geavanceerde encryptie en strikte protocollen."
+      badge="Beveiligingsarchitectuur"
+    >
       {/* Security Features Grid Section */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-white border-b border-slate-200/80">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-12">Slimme beveiliging</h2>
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">
+              Robuuste Kern
+            </span>
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+              Slimme beveiligingsprincipes
+            </h2>
+            <p className="text-slate-600 text-sm">
+              Ieder onderdeel van het platform is ontworpen volgens defensieve beveiligingsrichtlijnen.
+            </p>
+          </div>
           <SecurityFeatures />
         </div>
       </section>
       
       {/* No external access section */}
-      <section className="py-16 px-4 bg-[#1A1F2C] text-white">
+      <section className="py-16 px-4 bg-slate-900 text-white border-b border-slate-800">
         <div className="container mx-auto max-w-4xl">
           <NoExternalAccess />
         </div>
       </section>
       
       {/* Security Measures Timeline */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-slate-50 border-b border-slate-200/80">
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-12">
-            Beveiligingsmaatregelen – Visueel overzicht
-          </h2>
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">
+              Protocol Uitvoering
+            </span>
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+              Beveiligingsmaatregelen – Visueel overzicht
+            </h2>
+          </div>
           <SecurityTimeline />
         </div>
       </section>
       
       {/* Future Updates */}
-      <section className="py-16 px-4 bg-indigo-50">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
-            Toekomstige updates
-          </h2>
+      <section className="py-16 px-4 bg-white border-b border-slate-200/80">
+        <div className="container mx-auto max-w-4xl text-center space-y-8">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">
+              Continu Verbeteren
+            </span>
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight mt-2">
+              Toekomstige beveiligingsupgrades
+            </h2>
+          </div>
           <FutureUpdates />
         </div>
       </section>
       
       {/* Final CTA */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-3xl text-center">
+      <section className="py-16 px-4 bg-slate-50">
+        <div className="container mx-auto max-w-3xl">
           <SecurityCTA />
         </div>
       </section>
-    </InfoPageLayout>;
+    </InfoPageLayout>
+  );
 }

@@ -20,7 +20,7 @@ export default function FinalCtaSection({ onOpenDemo }: Props) {
             Klaar om jouw cashflow op te bouwen?
           </h2>
           <p className="text-indigo-100 text-base max-w-xl mx-auto leading-relaxed">
-            Geen ingewikkelde stappen. Sluit je aan bij Investbotiq en laat de IQ Bot direct voor je werken.
+            Geen ingewikkelde stappen. Sluit je aan bij INVESTBOTIQ en laat de IQ Bot direct voor je werken.
           </p>
           
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">

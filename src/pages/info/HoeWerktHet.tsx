@@ -85,7 +85,7 @@ const BENEFITS = [
 export default function HoeWerktHet() {
   return (
     <InfoPageLayout
-      title="Hoe werkt Investbotiq?"
+      title="Hoe werkt INVESTBOTIQ?"
       subtitle="Eenvoudig, transparant en 100% geautomatiseerd voor duurzame cashflow."
       badge="Stappenplan & Proces"
     >

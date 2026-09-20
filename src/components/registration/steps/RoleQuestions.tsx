@@ -17,7 +17,7 @@ interface RoleQuestionsProps {
 const roleQuestions: Record<Role, { id: string; question: string }[]> = {
   member: [
     { id: "financiele_situatie", question: "Wat is uw huidige financiële situatie?" },
-    { id: "voornaamste_doel", question: "Wat is uw voornaamste doel met Investbotiq?" }
+    { id: "voornaamste_doel", question: "Wat is uw voornaamste doel met INVESTBOTIQ?" }
   ],
   student: [
     { id: "studie", question: "Wat studeert u op dit moment?" },
@@ -28,7 +28,7 @@ const roleQuestions: Record<Role, { id: string; question: string }[]> = {
     { id: "zelf_investeren", question: "Wilt u ook investeren namens uzelf?" }
   ],
   affiliated: [
-    { id: "promotie_manier", question: "Op welke manier wilt u Investbotiq promoten?" },
+    { id: "promotie_manier", question: "Op welke manier wilt u INVESTBOTIQ promoten?" },
     { id: "bereik_netwerk", question: "Heeft u al een bereik of netwerk?" }
   ],
   freelancer: [

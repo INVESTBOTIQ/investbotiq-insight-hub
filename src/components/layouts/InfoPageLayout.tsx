@@ -17,7 +17,7 @@ export default function InfoPageLayout({
   children,
   title,
   subtitle,
-  badge = "Investbotiq Informatie",
+  badge = "INVESTBOTIQ Informatie",
   showGradientBackground = true,
 }: InfoPageLayoutProps) {
   return (
@@ -90,7 +90,7 @@ export default function InfoPageLayout({
           </div>
 
           <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
-            <p>© {new Date().getFullYear()} Investbotiq. Alle rechten voorbehouden.</p>
+            <p>© {new Date().getFullYear()} INVESTBOTIQ. Alle rechten voorbehouden.</p>
             <div className="flex gap-6">
               <span className="text-slate-500">100% Geautomatiseerde Cashflow</span>
               <span className="text-slate-500">Eigen Beheer</span>

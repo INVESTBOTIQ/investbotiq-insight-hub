@@ -21,7 +21,7 @@ export default function QuoteSection() {
             “Geen emoties, geen zorgen. De IQ Bot regelt het gestructureerd voor je.”
           </blockquote>
           <p className="mt-4 text-indigo-200 text-sm font-medium uppercase tracking-widest">
-            Investbotiq Filosofie
+            INVESTBOTIQ Filosofie
           </p>
         </motion.div>
       </div>

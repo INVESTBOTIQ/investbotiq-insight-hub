@@ -168,7 +168,7 @@ export async function getUserReferrals(userId: string): Promise<Referral[]> {
             referral.referred_user_email = 'Gebruiker';
           }
         } catch {
-          referral.referred_user_email = 'Lid Investbotiq';
+          referral.referred_user_email = 'Lid INVESTBOTIQ';
         }
       }
     }

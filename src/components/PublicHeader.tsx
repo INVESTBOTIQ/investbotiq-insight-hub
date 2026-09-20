@@ -55,7 +55,7 @@ const PublicHeader: React.FC<Props> = ({ onOpenDemo }) => {
         <div className="md:hidden border-t border-slate-200 bg-white px-5 pt-3 pb-6 space-y-3 shadow-xl">
           <div className="space-y-1">
             <div className="px-3 py-1.5 text-xs font-bold text-purple-600 uppercase tracking-wider">
-              Alles over Investbotiq
+              Alles over INVESTBOTIQ
             </div>
             <Link 
               to="/alles-over-investbot/wat-is-het" 

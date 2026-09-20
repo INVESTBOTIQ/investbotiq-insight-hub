@@ -62,7 +62,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
     <Link
       to={defaultTo}
       className={cn("flex items-center group select-none transition-all", sizeConfig.gap, className)}
-      aria-label="Investbotiq"
+      aria-label="INVESTBOTIQ"
     >
       {/* Geïntegreerd logo icoon met gradiënt en donkere kern */}
       <div
@@ -96,7 +96,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
               isDark ? "text-white group-hover:text-purple-200" : "text-slate-900 dark:text-white group-hover:text-indigo-900 dark:group-hover:text-purple-200"
             )}
           >
-            Investbotiq
+            INVESTBOTIQ
           </span>
           {showSubtitle && (
             <span

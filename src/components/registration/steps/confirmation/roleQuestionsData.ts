@@ -5,7 +5,7 @@ import { Role } from "../../MultiStepForm";
 export const roleQuestions: Record<Role, { id: string; question: string }[]> = {
   member: [
     { id: "financiele_situatie", question: "Huidige financiële situatie" },
-    { id: "voornaamste_doel", question: "Voornaamste doel met Investbotiq" }
+    { id: "voornaamste_doel", question: "Voornaamste doel met INVESTBOTIQ" }
   ],
   student: [
     { id: "studie", question: "Studeert momenteel" },

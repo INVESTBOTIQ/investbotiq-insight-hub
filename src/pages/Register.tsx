@@ -28,7 +28,7 @@ const Register = () => {
           <Card className="shadow-none border-0 bg-slate-900/90 backdrop-blur-xl text-white rounded-[23px]">
             <CardHeader className="border-b border-slate-800 pb-4">
               <CardTitle className="text-2xl text-center font-extrabold text-white">
-                Aanmelden bij Investbotiq
+                Aanmelden bij INVESTBOTIQ
               </CardTitle>
               <p className="text-center text-xs text-slate-400">
                 Start binnen enkele minuten met geautomatiseerde AI cashflows

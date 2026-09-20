@@ -52,7 +52,7 @@ export const NewUserDialog = ({ isOpen, onOpenChange }: NewUserDialogProps) => {
         <DialogHeader>
           <DialogTitle>Nieuwe gebruiker toevoegen</DialogTitle>
           <DialogDescription>
-            Dit maakt een nieuwe gebruiker aan in het Investbotiq systeem. Er wordt automatisch een account aangemaakt in Supabase auth.users.
+            Dit maakt een nieuwe gebruiker aan in het INVESTBOTIQ systeem. Er wordt automatisch een account aangemaakt.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleAddUser}>

@@ -35,7 +35,7 @@ export default function ValuesSection() {
             Karakter & Principes
           </span>
           <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
-            De kernwaarden van Investbotiq
+            De kernwaarden van INVESTBOTIQ
           </h2>
           <p className="text-slate-600 text-sm">
             Deze principes sturen elke beslissing en elk algoritme binnen ons platform.

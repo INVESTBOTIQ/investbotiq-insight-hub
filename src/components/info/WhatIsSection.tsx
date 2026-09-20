@@ -75,12 +75,12 @@ export default function WhatIsSection() {
           </FadeIn>
           <FadeIn delay={0.12}>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Wat is Investbotiq?
+              Wat is INVESTBOTIQ?
             </h2>
           </FadeIn>
           <FadeIn delay={0.18}>
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-              Investbotiq is een platform dat automatisch gestructureerde cashflow voor jou genereert met behulp van de IQ Bot. Geen lastige investeringskeuzes, geen technische kennis vereist.
+              INVESTBOTIQ is een platform dat automatisch gestructureerde cashflow voor jou genereert met behulp van de IQ Bot. Geen lastige investeringskeuzes, geen technische kennis vereist.
             </p>
           </FadeIn>
         </div>

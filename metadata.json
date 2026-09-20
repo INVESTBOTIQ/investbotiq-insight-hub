@@ -1,6 +1,6 @@
 {
-  "name": "Invest Bot IQ Insight Hub",
-  "description": "Invest Bot IQ Geautomatiseerd Cashflow Platform",
+  "name": "INVESTBOTIQ Insight Hub",
+  "description": "INVESTBOTIQ Geautomatiseerd Cashflow Platform voor slimme vermogensgroei en passieve inkomstenstromen.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

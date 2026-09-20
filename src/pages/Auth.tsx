@@ -236,7 +236,7 @@ export default function Auth() {
                   className="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:from-purple-500 hover:to-indigo-500 active:from-purple-700 active:to-indigo-700 text-white font-extrabold py-3.5 rounded-xl shadow-xl shadow-purple-600/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2 mt-3 h-12 text-sm"
                   disabled={loading}
                 >
-                  <span>{loading ? "Bezig met inloggen..." : "Inloggen bij Investbotiq"}</span>
+                  <span>{loading ? "Bezig met inloggen..." : "Inloggen bij INVESTBOTIQ"}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </form>

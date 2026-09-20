@@ -20,13 +20,13 @@ export default function CTASection() {
           </h2>
 
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-            Meld u aan binnen het Investbotiq portaal en bekijk realtime hoe uw Tier strategie zich ontwikkelt.
+            Meld u aan binnen het INVESTBOTIQ portaal en bekijk realtime hoe uw Tier strategie zich ontwikkelt.
           </p>
           
           <div className="pt-2 flex flex-col sm:flex-row justify-center gap-4">
             <Button asChild size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-6 px-8 rounded-xl shadow-lg shadow-indigo-600/30">
               <Link to="/auth" className="flex items-center gap-2">
-                <span>Start nu met Investbotiq</span>
+                <span>Start nu met INVESTBOTIQ</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>

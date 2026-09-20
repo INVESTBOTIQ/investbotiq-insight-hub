@@ -49,7 +49,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: "Komen er extra kosten bij kijken?",
-    answer: "Nee, deelname aan het standaard Investbotiq traject brengt geen verborgen of onvoorziene extra kosten met zich mee.",
+    answer: "Nee, deelname aan het standaard INVESTBOTIQ traject brengt geen verborgen of onvoorziene extra kosten met zich mee.",
     category: "Algemeen"
   },
   {
@@ -58,8 +58,8 @@ const FAQ_ITEMS: FAQItem[] = [
     category: "Technisch"
   },
   {
-    question: "Wat onderscheidt Investbotiq van andere investeringen of leningen?",
-    answer: "Investbotiq benut het unieke tijd kloof profijt principe (time gap profit), waardoor geautomatiseerde arbitrage mogelijk is.",
+    question: "Wat onderscheidt INVESTBOTIQ van andere investeringen of leningen?",
+    answer: "INVESTBOTIQ benut het unieke tijd kloof profijt principe (time gap profit), waardoor geautomatiseerde arbitrage mogelijk is.",
     category: "Technisch"
   },
   {
@@ -113,7 +113,7 @@ export default function FAQPage() {
             Veelgestelde Vragen
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-xl mx-auto">
-            Vind snel antwoord op al uw vragen over het Investbotiq ecosysteem, opbrengsten en veiligheid.
+            Vind snel antwoord op al uw vragen over het INVESTBOTIQ ecosysteem, opbrengsten en veiligheid.
           </p>
 
           {/* Search Box */}
@@ -233,7 +233,7 @@ export default function FAQPage() {
           </div>
 
           <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
-            <p>© {new Date().getFullYear()} Investbotiq. Alle rechten voorbehouden.</p>
+            <p>© {new Date().getFullYear()} INVESTBOTIQ. Alle rechten voorbehouden.</p>
             <div className="flex gap-6">
               <span className="text-slate-500">100% Geautomatiseerde Cashflow</span>
               <span className="text-slate-500">Eigen Beheer</span>

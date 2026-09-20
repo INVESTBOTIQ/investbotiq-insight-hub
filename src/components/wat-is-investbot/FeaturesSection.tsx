@@ -67,7 +67,7 @@ export default function FeaturesSection() {
             <span>Voordelen van het Ecosysteem</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Waarom kiezen voor Investbotiq?
+            Waarom kiezen voor INVESTBOTIQ?
           </h2>
           <p className="text-slate-600 text-sm sm:text-base">
             Ontworpen voor maximale zekerheid, eenvoud en meetbare resultaten.

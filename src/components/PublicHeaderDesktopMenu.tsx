@@ -30,7 +30,7 @@ const PublicHeaderDesktopMenu: React.FC<Props> = ({ handleNav, onOpenDemo }) => 
 
   return (
     <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-slate-700">
-      {/* Alles over Investbotiq Dropdown */}
+      {/* Alles over INVESTBOTIQ Dropdown */}
       <div 
         className="relative"
         onMouseEnter={() => setDropdownOpen(true)}
@@ -40,7 +40,7 @@ const PublicHeaderDesktopMenu: React.FC<Props> = ({ handleNav, onOpenDemo }) => 
           onClick={() => setDropdownOpen(v => !v)}
           className="flex items-center gap-1 text-slate-700 hover:text-purple-600 active:text-purple-800 transition-colors font-semibold"
         >
-          <span>Alles over Investbotiq</span>
+          <span>Alles over INVESTBOTIQ</span>
           <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
         </button>
 

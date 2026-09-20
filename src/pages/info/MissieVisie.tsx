@@ -10,7 +10,7 @@ import CTASection from "@/components/missie-visie/CTASection";
 export default function MissieVisie() {
   return (
     <InfoPageLayout 
-      title="Missie & Visie van InvestbotIQ"
+      title="Missie & Visie van INVESTBOTIQ"
       subtitle="Financiële vrijheid. Voor iedereen. Altijd."
     >
       <MissionSection />

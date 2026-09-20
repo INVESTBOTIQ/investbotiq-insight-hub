@@ -53,7 +53,7 @@ export default function Home() {
                 Veiligheid
               </Link>
               <Link to="/alles-over-investbot/wat-is-het" className="hover:text-white transition-colors">
-                Alles over Investbot
+                Alles over INVESTBOTIQ
               </Link>
               <Link to="/faq" className="hover:text-white transition-colors">
                 FAQ
@@ -71,7 +71,7 @@ export default function Home() {
           </div>
 
           <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
-            <p>© {new Date().getFullYear()} Investbotiq. Alle rechten voorbehouden.</p>
+            <p>© {new Date().getFullYear()} INVESTBOTIQ. Alle rechten voorbehouden.</p>
             <div className="flex gap-5 text-slate-400 text-xs">
               <a href="#" className="hover:text-white transition-colors">Algemene Voorwaarden</a>
               <a href="#" className="hover:text-white transition-colors">Privacybeleid</a>
